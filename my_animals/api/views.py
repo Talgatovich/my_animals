@@ -1,31 +1,35 @@
-from pprint import pprint
-
 from django.shortcuts import get_object_or_404
-from pets.models import Image, Pet
+from pets.models import Pet
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .serializers import PetSerializer
+from .serializers import (
+    LoadPhotoSerializer,
+    PetCreateSerializer,
+    PetShowSerializer,
+)
 
 OK = status.HTTP_200_OK
 CREATED = status.HTTP_201_CREATED
 
 
 class PetList(APIView):
+    """Информация обо всех питомцах"""
+
     def get(self, request):
         pets = Pet.objects.all()
-        serializer = PetSerializer(pets, many=True)
+        serializer = PetShowSerializer(pets, many=True)
         return Response(serializer.data, status=OK)
 
     def post(self, request):
-        serializer = PetSerializer(data=request.data)
+        serializer = PetCreateSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=CREATED)
 
     # def delete(self, request):
-    #     pprint(request.data)
+    #
     #     pets_ids = request.data.values()
     #     result = {"deleted": 0, "errors": []}
     #     for val in pets_ids:
@@ -41,9 +45,20 @@ class PetList(APIView):
 
 
 class PetDetail(APIView):
-    """"""
+    """Вывод информации о конкретном питомце"""
 
     def get(self, request, pk):
         pet = get_object_or_404(Pet, pk=pk)
-        serializer = PetSerializer(pet)
+        serializer = PetShowSerializer(pet)
         return Response(serializer.data, status=OK)
+
+
+class LoadPhoto(APIView):
+    """Загрузка фотографии питомца"""
+
+    def post(self, request, pk):
+        request.data["pk"] = pk
+        serializer = LoadPhotoSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=CREATED)

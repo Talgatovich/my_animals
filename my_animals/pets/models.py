@@ -32,6 +32,4 @@ class Image(models.Model):
         verbose_name_plural = "Фотографии"
 
     def __str__(self):
-        print(self.__dict__)
-        print(self.image.__dict__)
         return self.image.name

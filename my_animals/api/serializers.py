@@ -1,5 +1,6 @@
 from datetime import datetime as dt
 
+from django.shortcuts import get_object_or_404
 from pets.models import Image, Pet
 from rest_framework import serializers
 
@@ -12,7 +13,23 @@ class ImageSerializer(serializers.ModelSerializer):
         fields = ("id", "url")
 
 
-class PetSerializer(serializers.ModelSerializer):
+class LoadPhotoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Image
+        fields = ("image",)
+
+    def create(self, validated_data):
+        data = self._kwargs["data"]
+        image = data["image"]
+        pet = get_object_or_404(Pet, pk=data["pk"])
+
+        return Image.objects.create(image=image, pet=pet)
+
+    def to_representation(self, instance):
+        return ImageSerializer(instance).data
+
+
+class PetShowSerializer(serializers.ModelSerializer):
     photos = ImageSerializer(many=True, read_only=True)
     age = serializers.SerializerMethodField()
 
@@ -22,3 +39,19 @@ class PetSerializer(serializers.ModelSerializer):
 
     def get_age(self, obj):
         return dt.now().year - obj.birth_year
+
+
+class PetCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Pet
+        fields = ("name", "type", "birth_year")
+
+    def validate_birth_year(self, value):
+        year = dt.now().year
+        if not (year - 40 < value <= year):
+            raise serializers.ValidationError("Проверьте год рождения!")
+        return value
+
+    def to_representation(self, instance):
+        data = PetShowSerializer(instance).data
+        return data
