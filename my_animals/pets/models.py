@@ -6,7 +6,7 @@ class Pet(models.Model):
 
     name = models.CharField("Кличка", max_length=100)
     type = models.CharField("Вид животного", max_length=50)
-    birthday = models.DateField("День рождения")
+    birth_year = models.IntegerField("Год рождения")
     created_at = models.DateTimeField("Зарегистрирован", auto_now_add=True)
 
     class Meta:
@@ -22,6 +22,9 @@ class Image(models.Model):
     """Фото питомца"""
 
     image = models.ImageField(upload_to="pets/images/")
+    pet = models.ForeignKey(
+        Pet, on_delete=models.CASCADE, related_name="photos"
+    )
 
     class Meta:
         ordering = ("-pk",)
@@ -29,14 +32,6 @@ class Image(models.Model):
         verbose_name_plural = "Фотографии"
 
     def __str__(self):
-        return str(self.id)
-
-
-class PetImage(models.Model):
-    pet = models.ForeignKey(Pet, on_delete=models.CASCADE)
-    image = models.ForeignKey(Image, on_delete=models.CASCADE)
-
-    class Meta:
-        ordering = ("-pk",)
-        verbose_name = "Фотография питомца"
-        verbose_name_plural = "Фотографии питомцев"
+        print(self.__dict__)
+        print(self.image.__dict__)
+        return self.image.name

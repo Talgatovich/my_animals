@@ -1,7 +1,8 @@
 from django.urls import path
 
-from .views import APIPet
+from .views import PetDetail, PetList
 
 urlpatterns = [
-    path("pets/", APIPet.as_view()),
+    path("pets/", PetList.as_view()),
+    path("pets/<pk>/", PetDetail.as_view()),
 ]
