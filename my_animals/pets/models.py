@@ -22,9 +22,12 @@ class Pet(models.Model):
 class Image(models.Model):
     """Фото питомца"""
 
-    image = models.ImageField(upload_to="pets/images/")
+    image = models.ImageField("Фото", upload_to="pets/images/")
     pet = models.ForeignKey(
-        Pet, on_delete=models.CASCADE, related_name="photos"
+        Pet,
+        on_delete=models.CASCADE,
+        related_name="photos",
+        verbose_name="Питомец",
     )
 
     class Meta:

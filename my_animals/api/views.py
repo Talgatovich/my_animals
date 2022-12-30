@@ -1,7 +1,7 @@
 import json
 
 from django.shortcuts import get_object_or_404
-from django_filters.rest_framework import DjangoFilterBackend
+from django_filters import rest_framework as filters
 from pets.models import Pet
 from rest_framework import generics, status
 from rest_framework.pagination import LimitOffsetPagination
@@ -22,8 +22,9 @@ class PetList(generics.ListCreateAPIView, generics.DestroyAPIView):
     """Информация обо всех питомцах"""
 
     queryset = Pet.objects.all()
-    filter_backends = (DjangoFilterBackend,)
+    filter_backends = (filters.DjangoFilterBackend,)
     filterset_class = PetFilter
+    filterset_fields = ("birth_year",)
 
     def get_serializer_class(self):
         if self.request.method == "GET":
