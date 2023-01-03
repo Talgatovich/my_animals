@@ -4,7 +4,6 @@ from django.shortcuts import get_object_or_404
 from django_filters import rest_framework as filters
 from pets.models import Pet
 from rest_framework import generics, status
-from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -24,7 +23,6 @@ class PetList(generics.ListCreateAPIView, generics.DestroyAPIView):
     queryset = Pet.objects.all()
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_class = PetFilter
-    filterset_fields = ("birth_year",)
 
     def get_serializer_class(self):
         if self.request.method == "GET":
