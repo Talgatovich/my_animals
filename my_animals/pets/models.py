@@ -7,7 +7,6 @@ class Pet(models.Model):
     name = models.CharField("Кличка", max_length=100)
     type = models.CharField("Вид животного", max_length=50)
     birth_year = models.IntegerField("Год рождения")
-    # photo = models.ForeignKey("Image", )
     created_at = models.DateTimeField("Зарегистрирован", auto_now_add=True)
 
     class Meta:

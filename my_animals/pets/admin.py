@@ -18,9 +18,3 @@ class PetAdmin(admin.ModelAdmin):
 @admin.register(Image)
 class ImageAdmin(admin.ModelAdmin):
     list_display = ("id", "image", "pet")
-
-
-#
-# @admin.register(PetImage)
-# class PetImageAdmin(admin.ModelAdmin):
-#     list_display = ("id", "pet", "image")

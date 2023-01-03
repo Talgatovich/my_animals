@@ -1,6 +1,5 @@
 import json
 
-from django.shortcuts import get_object_or_404
 from django_filters import rest_framework as filters
 from pets.models import Pet
 from rest_framework import generics, status
