@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
@@ -24,7 +24,6 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework_api_key",
     "django_filters",
-    "users.apps.UsersConfig",
     "pets.apps.PetsConfig",
     "api.apps.ApiConfig",
     "django_cleanup.apps.CleanupConfig",
@@ -61,9 +60,6 @@ TEMPLATES = [
 WSGI_APPLICATION = "config.wsgi.application"
 
 
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
@@ -74,13 +70,6 @@ DATABASES = {
         "PORT": os.getenv("POSTGRES_PORT", default=5432),
     }
 }
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": "mydatabase.sqlite3",
-#     }
-# }
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -125,7 +114,6 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-AUTH_USER_MODEL = "users.User"
 
 STATIC_URL = "/backend_static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")

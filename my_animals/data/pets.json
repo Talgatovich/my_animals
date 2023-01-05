@@ -48,5 +48,70 @@
         "name": "Акбай",
         "type": "Собака",
         "birth_year": 2000
+    },
+    {
+        "name": "Рыжий",
+        "type": "Собака",
+        "birth_year": 2016
+    },
+    {
+        "name": "Джек",
+        "type": "Собака",
+        "birth_year": 2019
+    },
+    {
+        "name": "Дик",
+        "type": "Собака",
+        "birth_year": 2017
+    },
+    {
+        "name": "Баллу",
+        "type": "Собака",
+        "birth_year": 2005
+    },
+    {
+        "name": "Вуд",
+        "type": "Собака",
+        "birth_year": 2021
+    },
+    {
+        "name": "Цеба",
+        "type": "Кошка",
+        "birth_year": 2022
+    },
+    {
+        "name": "Хард",
+        "type": "Собака",
+        "birth_year": 2020
+    },
+    {
+        "name": "Вель",
+        "type": "Кошка",
+        "birth_year": 2019
+    },
+    {
+        "name": "Ральф",
+        "type": "Кошка",
+        "birth_year": 2017
+    },
+    {
+        "name": "Роджер",
+        "type": "Собака",
+        "birth_year": 2011
+    },
+    {
+        "name": "Флинт",
+        "type": "Собака",
+        "birth_year": 2012
+    },
+    {
+        "name": "Зингер",
+        "type": "Собака",
+        "birth_year": 2008
+    },
+    {
+        "name": "Арно",
+        "type": "Кошка",
+        "birth_year": 2009
     }
 ]

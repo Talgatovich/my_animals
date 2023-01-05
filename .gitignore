@@ -131,3 +131,6 @@ dmypy.json
 #media and static files
 media/
 static/
+
+# nginx conf
+nginx/
