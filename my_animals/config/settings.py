@@ -64,23 +64,23 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "HOST": os.getenv("POSTGRES_HOST", default="localhost"),
-#         "NAME": os.getenv("POSTGRES_NAME", default="postgres"),
-#         "USER": os.getenv("POSTGRES_USER", default="postgres"),
-#         "PASSWORD": os.getenv("POSTGRES_PASSWORD", default="postgres"),
-#         "PORT": os.getenv("POSTGRES_PORT", default=5432),
-#     }
-# }
-
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "mydatabase.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "HOST": os.getenv("POSTGRES_HOST", default="localhost"),
+        "NAME": os.getenv("POSTGRES_NAME", default="postgres"),
+        "USER": os.getenv("POSTGRES_USER", default="postgres"),
+        "PASSWORD": os.getenv("POSTGRES_PASSWORD", default="postgres"),
+        "PORT": os.getenv("POSTGRES_PORT", default=5432),
     }
 }
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": "mydatabase.sqlite3",
+#     }
+# }
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -107,6 +107,7 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework_api_key.permissions.HasAPIKey",
     ],
+    "DATETIME_FORMAT": "%d.%m.%Y %H:%M:%S",
 }
 
 

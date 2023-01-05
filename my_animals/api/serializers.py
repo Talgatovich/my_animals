@@ -6,6 +6,8 @@ from rest_framework import serializers
 
 
 class ImageSerializer(serializers.ModelSerializer):
+    """Вывод фотографии"""
+
     url = serializers.ImageField(source="image")
 
     class Meta:
@@ -14,6 +16,8 @@ class ImageSerializer(serializers.ModelSerializer):
 
 
 class LoadPhotoSerializer(serializers.ModelSerializer):
+    """Загрузка фотографии"""
+
     class Meta:
         model = Image
         fields = ("image",)
@@ -30,6 +34,8 @@ class LoadPhotoSerializer(serializers.ModelSerializer):
 
 
 class PetShowSerializer(serializers.ModelSerializer):
+    """Вывод информации о питомцах"""
+
     photos = ImageSerializer(many=True, read_only=True)
     age = serializers.SerializerMethodField()
 
@@ -42,11 +48,14 @@ class PetShowSerializer(serializers.ModelSerializer):
 
 
 class PetCreateSerializer(serializers.ModelSerializer):
+    """Создание питомца"""
+
     class Meta:
         model = Pet
         fields = ("name", "type", "birth_year")
 
     def validate_birth_year(self, value):
+        """Валидация года рождения"""
         year = dt.now().year
         if not (year - 40 < value <= year):
             raise serializers.ValidationError("Проверьте год рождения!")
@@ -58,10 +67,14 @@ class PetCreateSerializer(serializers.ModelSerializer):
 
 
 class ShowImageSerializer(serializers.Serializer):
+    """Вспомогательный сериализатор. Используется в ImageCLISerializer"""
+
     image = serializers.CharField(max_length=500)
 
 
 class ImageCLISerializer(serializers.ModelSerializer):
+    """Сериализатор для вывода фото в консоль"""
+
     class Meta:
         model = Image
         fields = ("image",)
@@ -72,6 +85,8 @@ class ImageCLISerializer(serializers.ModelSerializer):
 
 
 class CLISerializer(serializers.ModelSerializer):
+    """Вывод информации о питомцах в консоль"""
+
     photos = ImageCLISerializer(many=True, read_only=True)
     age = serializers.SerializerMethodField()
 
