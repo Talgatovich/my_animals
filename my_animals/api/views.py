@@ -2,7 +2,7 @@ import json
 
 from django_filters import rest_framework as filters
 from pets.models import Pet
-from rest_framework import generics, status
+from rest_framework import generics, serializers, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -30,7 +30,10 @@ class PetList(generics.ListCreateAPIView, generics.DestroyAPIView):
 
     def delete(self, request):
         result = {"deleted": 0, "errors": []}
-        ids = json.loads(self.request.body.decode()).get("ids")
+        try:
+            ids = json.loads(self.request.body.decode()).get("ids")
+        except Exception:
+            raise serializers.ValidationError("ids: [Обязательное поле.]")
         if ids is None:
             error = "Не введён ни один id"
             result["errors"].append(error)
