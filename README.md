@@ -1,4 +1,4 @@
-### My_animals. Тестовое задание для Double tapp
+### My_animals. Тестовое задание для Doubletapp
 
 #### API для ведения учёта питомцев
 
