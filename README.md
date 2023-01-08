@@ -10,7 +10,7 @@
 git clone git@github.com:Talgatovich/my_animals.git
 ```
 
-### 1. Через Docker-compose
+### Вариант 1. Через Docker-compose
 
 #### Перейти в папку с Docker-compose.yaml
 
@@ -33,19 +33,19 @@ docker-compose up -d
 #### Собрать статические файлы в STATIC_ROOT
 
 ```
-docker-compose exec web python3 manage.py collectstatic --noinput
+docker-compose exec web python manage.py collectstatic --noinput
 ```
 
 #### Применить миграции
 
 ```
-docker-compose exec web python3 manage.py migrate --noinput
+docker-compose exec web python manage.py migrate --noinput
 ```
 
 #### Наполнить базу данных
 
 ```
-sudo docker-compose exec web python manage.py load_pets
+docker-compose exec web python manage.py load_pets
 ```
 
 #### Создать суперпользователя Django
@@ -62,7 +62,7 @@ docker-compose exec web python manage.py createsuperuser
 docker-compose exec web python3 manage.py show_pets
 ```
 
-### 2. Не используя Docker-compose
+### Вариант 2. Не используя Docker-compose
 
 Cоздать и активировать виртуальное окружение:
 
@@ -105,7 +105,25 @@ POSTGRES_PORT=5432
 python3 manage.py migrate
 ```
 
-Запустить проект:
+#### Собрать статические файлы в STATIC_ROOT
+
+```
+python3 manage.py collectstatic --noinput
+```
+
+#### Наполнить базу данных
+
+```
+python3 manage.py load_pets
+```
+
+#### Создать суперпользователя Django
+
+```
+python3 manage.py createsuperuser
+```
+
+#### Запустить проект
 
 ```
 python3 manage.py runserver
@@ -121,9 +139,9 @@ python manage.py show_pets
 
 ---
 
-#### Данный проект доступен по [ссылке](http://80.251.156.48/pets/)
+#### Данный проект временно доступен по [ссылке](http://80.251.156.48/pets/)
 
-API-KEY для доступа
+API-KEY для доступа к API
 
 ```
 l1vCnRU1.7LBYt7qgrnVuHsVdzFLVQ1yW2rMMPG7S
