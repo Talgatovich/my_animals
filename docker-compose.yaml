@@ -7,7 +7,7 @@ services:
     volumes:
       - /var/lib/postgresql/data/    
     env_file:
-      - my_animals/config/.env
+      - .env
     environment:
       POSTGRES_DB: "${POSTGRES_NAME}"
       POSTGRES_USER: "${POSTGRES_USER}"
@@ -23,7 +23,7 @@ services:
     depends_on:
       - db
     env_file:
-      - my_animals/config/.env
+      - .env
 
   
   nginx:

@@ -121,7 +121,20 @@ python manage.py show_pets
 
 ---
 
-#### Данный проект доступен по [ссылке]()
+#### Данный проект доступен по [ссылке](80.251.156.48)
+
+API-KEY для доступа
+
+```
+l1vCnRU1.7LBYt7qgrnVuHsVdzFLVQ1yW2rMMPG7S
+```
+
+Доступ к админке:
+
+```
+login - admin
+password - admin
+```
 
 ---
 
