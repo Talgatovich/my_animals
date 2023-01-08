@@ -1,0 +1,10 @@
+#.dockerignore
+.env
+.mypy_cache
+.isort_cfg
+.idea
+.pre-commit-config.yaml
+pyproject.toml
+setup.cfg
+db.sqlite3
+venv

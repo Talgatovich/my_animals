@@ -1,0 +1,117 @@
+[
+    {
+        "name": "Мурзик",
+        "type": "Кошка",
+        "birth_year": 2014
+    },
+    {
+        "name": "Багира",
+        "type": "Кошка",
+        "birth_year": 2014
+    },
+    {
+        "name": "Вася",
+        "type": "Кошка",
+        "birth_year": 2018
+    },
+    {
+        "name": "Барсик",
+        "type": "Кошка",
+        "birth_year": 2019
+    },
+    {
+        "name": "Снежок",
+        "type": "Кошка",
+        "birth_year": 2013
+    },
+    {
+        "name": "Мухтар",
+        "type": "Собака",
+        "birth_year": 2014
+    },
+    {
+        "name": "Дружок",
+        "type": "Собака",
+        "birth_year": 2020
+    },
+    {
+        "name": "Тузик",
+        "type": "Собака",
+        "birth_year": 2018
+    },
+    {
+        "name": "Лайна",
+        "type": "Собака",
+        "birth_year": 2010
+    },
+    {
+        "name": "Акбай",
+        "type": "Собака",
+        "birth_year": 2000
+    },
+    {
+        "name": "Рыжий",
+        "type": "Собака",
+        "birth_year": 2016
+    },
+    {
+        "name": "Джек",
+        "type": "Собака",
+        "birth_year": 2019
+    },
+    {
+        "name": "Дик",
+        "type": "Собака",
+        "birth_year": 2017
+    },
+    {
+        "name": "Баллу",
+        "type": "Собака",
+        "birth_year": 2005
+    },
+    {
+        "name": "Вуд",
+        "type": "Собака",
+        "birth_year": 2021
+    },
+    {
+        "name": "Цеба",
+        "type": "Кошка",
+        "birth_year": 2022
+    },
+    {
+        "name": "Хард",
+        "type": "Собака",
+        "birth_year": 2020
+    },
+    {
+        "name": "Вель",
+        "type": "Кошка",
+        "birth_year": 2019
+    },
+    {
+        "name": "Ральф",
+        "type": "Кошка",
+        "birth_year": 2017
+    },
+    {
+        "name": "Роджер",
+        "type": "Собака",
+        "birth_year": 2011
+    },
+    {
+        "name": "Флинт",
+        "type": "Собака",
+        "birth_year": 2012
+    },
+    {
+        "name": "Зингер",
+        "type": "Собака",
+        "birth_year": 2008
+    },
+    {
+        "name": "Арно",
+        "type": "Кошка",
+        "birth_year": 2009
+    }
+]
